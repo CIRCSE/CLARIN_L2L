@@ -18,7 +18,7 @@ The tool is language independent (as any language can be used as input), but a d
 The materials are divided in the following directories and subdirectories:
 - `data` contains:
     - a dump of the DB used by the demo of our tool
-    - a directory with 3 RDF files generated from the DB using [this code]('code/notebooks/clarindb2lod.ipynb'), namely: 1. the lemma bank, 2. the frequency lists, 3. a link to a [sentiment lexicon](http://hdl.handle.net/20.500.11752/ILC-73) of Italian.
+    - a directory with 3 RDF files generated from the DB using [this code](code/notebooks/clarindb2lod.ipynb), namely: 1. the lemma bank, 2. the frequency lists, 3. a link to a [sentiment lexicon](http://hdl.handle.net/20.500.11752/ILC-73) of Italian.
 - `code` contains:
     - Jupyter notebooks used to generate the RDF data and explore them
     - the source code of our demo tool (COMING SOON)
