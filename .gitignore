@@ -6,6 +6,10 @@ __pycache__/
 # Local configurations
 *.ini
 
+# personal
+
+doc/report.md
+
 # C extensions
 *.so
 

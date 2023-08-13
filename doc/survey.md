@@ -50,7 +50,7 @@ These are the fundamental prerequsites for a lexical resources to be included in
 * a **lemma** must be present, either as the label of the entries or as part of the analysis of word forms; token- or word lists without lemmatization are not considered;
 * **part-of-speech** (POS) annotation must also be included.
 
-**Note** on the content of the `Type` column. For each lexical resources that we could check, we entered add a short note to classify the type of linguistic information provided for the lemmas or lexical entries:
+**Note** on the content of the `Type` column. For each lexical resources that we could check, we entered a short note to classify the type of linguistic information provided for the lemmas or lexical entries:
 
 * `arg`: different argument structures;
 * `coll`: favorite collocates;
@@ -90,7 +90,7 @@ This type of resource represents the ideal format for interoperable language res
 ### LR with Unique IDs for lemmas
 This class includes lexica, dictionaries, glossaries and word lists where the lexicographical content is grouped per lexical entry (LE, corresponding to the point 2.a [above](#a-survey-of-the-textual-and-lexical-resources-in-clarin)). These resources may consist of words and/or multi-word expressions (MEW), but not collocations extracted from corpora, as collocations are not necessarily part of the lexicon of a language; collocation dictionaries (where collocations are the main entries) are therefore not considered here.  
 
-Although not all of them have IDs for entries, the lemmas can always be uniquely identified, as they are the structuring element of these resources. If data are distributed in tabular format, for instance, each row corresponds to a lemma, and therefore row numbers are enough to locate and indentify them. Although they are not modeled in RDF, many of them use other standards to structure the lexicographical information. The most commonly used are the Text Encoding Initiative [TEI](https://tei-c.org/), the Lexical Markup Framework ([LMF](https://www.lexicalmarkupframework.org) or - for the resources published by the [UFAL](https://ufal.mff.cuni.cz/) - the [PDT-Vallex](https://ufal.mff.cuni.cz/pdt-vallex-valency-lexicon-linked-czech-corpora) format).
+Although not all of them have IDs for entries, the lemmas can always be uniquely identified, as they are the structuring element of these resources. If data are distributed in tabular format, for instance, each row corresponds to a lemma, and therefore row numbers are enough to locate and indentify them. Although they are not modeled in RDF, many of them use other standards to structure the lexicographical information. The most commonly used are the Text Encoding Initiative [TEI](https://tei-c.org/), the Lexical Markup Framework ([LMF](https://www.lexicalmarkupframework.org)) or - for the resources published by the [UFAL](https://ufal.mff.cuni.cz/) - the [PDT-Vallex](https://ufal.mff.cuni.cz/pdt-vallex-valency-lexicon-linked-czech-corpora) format.
 
 | Resource Name                                                                     	| Handle                                                                                                                                                                         	| Lang(s)       	| Size    	| Vocab      	| Type            	| Notes                                                                                                                                                                                	|
 |-----------------------------------------------------------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|---------------	|---------	|------------	|-----------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -150,7 +150,7 @@ Although not all of them have IDs for entries, the lemmas can always be uniquely
 | African   Wordnet: isiZulu 1.0                                                    	| https://hdl.handle.net/20.500.12185/371                                                                                                                                        	| zu            	| 6518    	| WN         	| syn    	|                                                                                                                                                                                            	|
 
 ### Lemmatized lists
-This class includes lists of inflected forms, synonym clusters, senses, derivational relations etc. that are connected in some ways to a lemma or a lemmatized lexical entry; they correspod to our class 2.b [above](#a-survey-of-the-textual-and-lexical-resources-in-clarin)). If the information is serialized in tabular format (e.g. in  CSV), the lemma is typically in one of the columns, repeated across several rows, while the row itself represents an inflected form, a sense or a derivational relation to another lemma. 
+This class includes lists of inflected forms, synonym clusters, senses, derivational relations etc. that are connected in some ways to a lemma or a lemmatized lexical entry; they correspod to our class 2.b [above](#a-survey-of-the-textual-and-lexical-resources-in-clarin). If the information is serialized in tabular format (e.g. in  CSV), the lemma is typically in one of the columns, repeated across several rows, while the row itself represents an inflected form, a sense or a derivational relation to another lemma. 
 
 One example of this type of LRs is the form list used by the Czech morph analyzer [MorfFlex CZ 2.0](http://hdl.handle.net/11234/1-3186); here we report some lines with the 7 singular forms of the lemma *kočka* 'cat' (note that the lemma is in the first column):
 
@@ -164,9 +164,9 @@ kočka NNFS6-----A---- kočce
 kočka NNFS7-----A---- kočkou
 ```
 
-In such lists lemmas are not uniquely identifiable. They can be used as source materials to infer lemma lists (and, possibly, morphological lists). However, these LRs may still be helpful becuase: a) they do provide relevant information about a lemma (senses, forms etc.); b) they can still be mined to compile lemma lists.
+In such lists lemmas are not uniquely identifiable. However, these LRs may still be helpful because: a) they do provide relevant information about a lemma (senses, forms etc.); b) they can still be mined to compile lemma lists.
 
-Note that, whenever the information is retrievable and unless otherwhise noted in the `Notes` field, the **size** refer to the number of lexical entries (lemmas), not the items (e.g. the inflected forms) themselves.
+Note that, whenever the information is retrievable and unless otherwhise noted in the `Notes` field, the **size** refers to the number of lexical entries (lemmas), not the items (e.g. the inflected forms) themselves.
 
 | Resource Name                                               	| Handle                                                 	| Lang(s)                       	| Entries / LU 	| Vocabs 	| Type       	| Notes                                                                                 	|
 |-------------------------------------------------------------	|--------------------------------------------------------	|-------------------------------	|--------------	|--------	|------------	|---------------------------------------------------------------------------------------	|
@@ -264,4 +264,4 @@ Raw or minimally annotated texts easily represent the most readily available res
 
 Due to the abundance and ubiquity of materials distributed in this format, in our prototype of the [CLARIN's text linker](demo_overview.md) we chose to perform a selection and a screening of raw textual resources programmatically. Our tool scans the resources available in VLO, identifies the attached documents (and the contento of any compressed archved), filters the texts in all parsable formats (plain text or XML) and triggers the pipeline for pos-tagging, lemmatization and linking.
 
-In our experiment on Italian, we identified `COMPLETE` resources that was parsed and analyzed. The full list is reported [here](). A subset of 14 resources is also included in the DB dump available at [`data/CLARINDB.sql.tar.gz`](../data/CLARINDB.sql.tar.gz).
+In our experiment on Italian, we identified about 200 resources that we could parse and analyze. However, due to the [technical limitations](https://github.com/CIRCSE/CLARIN_L2L/blob/main/doc/demo_overview.md#limitations) in the computational resources at our disposal, our prototype currently works with a subset of 14 resources only. This subset is included in the DB dump available at [`data/CLARINDB.sql.tar.gz`](../data/CLARINDB.sql.tar.gz).
