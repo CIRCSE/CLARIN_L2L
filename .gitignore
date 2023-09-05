@@ -8,7 +8,7 @@ __pycache__/
 
 # personal
 
-doc/report.md
+doc/report*
 
 # C extensions
 *.so
